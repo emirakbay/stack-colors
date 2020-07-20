@@ -1,16 +1,29 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-
 public class PlayerCollision : MonoBehaviour
 {
-    public PlayerMovement movement;
-    public GameManager gameManager;
     public Colors color;
     public Stack<GameObject> colorStack;
     [Header("STACK POSITION VALUES")]
     public Vector3 stackStartPos;
     public Vector3 offSet;
+
+    /*
+     
+    PhysicMaterial mat;
+    
+    void Start()
+    {
+        mat = collider.sharedMaterial;
+    }
+    void IncreaseFriction ()
+    {
+        mat.dynamicFriction += 0.1f;
+    }
+
+     
+    */
 
     void Start()
     {
@@ -31,11 +44,16 @@ public class PlayerCollision : MonoBehaviour
             }
             else
             {
-                var tempObj = colorStack.Pop();
-                Destroy(tempObj);
+                if (colorStack.Count == 0)
+                {
+                    Debug.Log("Out of stacks except player itself!!!");
+                }
+                else 
+                {
+                    var tempObj = colorStack.Pop();
+                    Destroy(tempObj);
+                }
             }
-
-
         }
     }
 

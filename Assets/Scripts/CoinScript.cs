@@ -9,7 +9,7 @@ public class CoinScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.name == "Player")
+        if (other.CompareTag("Player"))
         {
             FindObjectOfType<GameManager>().score++;
             Destroy(gameObject);

@@ -5,7 +5,7 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody rb;
     public float sidewaysForce = 500f;
     public float forwardForce = 2000f;
-    public bool stopped = false;
+    public bool isStopped = false;
 
     /*
     // Start is called before the first frame update
@@ -20,7 +20,6 @@ public class PlayerMovement : MonoBehaviour
         
     }
     */
-
     void FixedUpdate()
     {
         // Add a forward force variable so that it can be manipulated over Unity Engine.
@@ -36,5 +35,13 @@ public class PlayerMovement : MonoBehaviour
             rb.AddForce(0, 0, -sidewaysForce * Time.deltaTime, ForceMode.VelocityChange);
         }
     }
+    /*void IsMoving() 
+    {
+        if (rb.velocity < 0f) 
+        {
+
+        }
+
+    }*/
 }
 
