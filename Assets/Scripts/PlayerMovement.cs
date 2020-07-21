@@ -6,42 +6,29 @@ public class PlayerMovement : MonoBehaviour
     public float sidewaysForce = 500f;
     public float forwardForce = 2000f;
     public bool isStopped = false;
-
-    /*
-    // Start is called before the first frame update
-    void Start()
+    void Start() 
     {
-
+        rb = GetComponent<Rigidbody>();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    */
     void FixedUpdate()
     {
+        Debug.Log(rb.velocity);
+
+        isMoving();
+
         // Add a forward force variable so that it can be manipulated over Unity Engine.
         rb.AddForce(-forwardForce * Time.deltaTime, 0, 0);
 
         if (Input.GetKey("d"))
-        {
             rb.AddForce(0, 0, sidewaysForce * Time.deltaTime, ForceMode.VelocityChange);
-        }
 
         if (Input.GetKey("a"))
-        {
             rb.AddForce(0, 0, -sidewaysForce * Time.deltaTime, ForceMode.VelocityChange);
-        }
     }
-    /*void IsMoving() 
+    void isMoving()
     {
-        if (rb.velocity < 0f) 
-        {
-
-        }
-
-    }*/
+        if (rb.velocity.x >= 0f)
+            Debug.Log("Object has stopped moving!!!!");
+    }
 }
 

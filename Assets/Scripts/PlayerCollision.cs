@@ -8,30 +8,13 @@ public class PlayerCollision : MonoBehaviour
     [Header("STACK POSITION VALUES")]
     public Vector3 stackStartPos;
     public Vector3 offSet;
-
-    /*
-     
-    PhysicMaterial mat;
-    
-    void Start()
-    {
-        mat = collider.sharedMaterial;
-    }
-    void IncreaseFriction ()
-    {
-        mat.dynamicFriction += 0.1f;
-    }
-
-     
-    */
-
+    private GameObject ground;
     void Start()
     {
         colorStack = new Stack<GameObject>();
     }
 
-    // yavaşlat
-    // yerde kalanları topla
+    // Pick leftoffs
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Obstacle"))
@@ -44,6 +27,10 @@ public class PlayerCollision : MonoBehaviour
             }
             else
             {
+                ground = GameObject.Find("Ground");
+                var friction = ground.GetComponent<Collider>();
+                friction.material.dynamicFriction = 1;
+                friction.material.staticFriction = 1;
                 if (colorStack.Count == 0)
                 {
                     Debug.Log("Out of stacks except player itself!!!");
@@ -59,7 +46,6 @@ public class PlayerCollision : MonoBehaviour
 
     public void SetColor(Colors toSet)
     {
-
         Renderer render = GetComponent<Renderer>();
         color = toSet;
         switch (color)
