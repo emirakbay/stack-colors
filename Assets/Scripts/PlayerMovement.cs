@@ -3,8 +3,8 @@
 public class PlayerMovement : MonoBehaviour
 {
     public Rigidbody rb;
-    public float sidewaysForce = 500f;
-    public float forwardForce = 2000f;
+    public float sidewaysForce = 50f;
+    public float forwardForce = 400f;
     public bool isStopped = false;
     void Start() 
     {
@@ -13,10 +13,8 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         Debug.Log(rb.velocity);
-
         isMoving();
-
-        // Add a forward force variable so that it can be manipulated over Unity Engine.
+    
         rb.AddForce(-forwardForce * Time.deltaTime, 0, 0);
 
         if (Input.GetKey("d"))
