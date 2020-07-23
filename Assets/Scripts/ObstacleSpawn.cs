@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-
 public class ObstacleSpawn : MonoBehaviour
 {
     public GameObject redObstacle;
@@ -48,3 +47,4 @@ public class ObstacleSpawn : MonoBehaviour
         return new Vector3(v.x, v.y, v.z+0.3F);
      }
 }
+

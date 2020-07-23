@@ -12,9 +12,6 @@ public class PlayerMovement : MonoBehaviour
     }
     void FixedUpdate()
     {
-        Debug.Log(rb.velocity);
-        isMoving();
-    
         rb.AddForce(-forwardForce * Time.deltaTime, 0, 0);
 
         if (Input.GetKey("d"))
@@ -29,4 +26,3 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("Object has stopped moving!!!!");
     }
 }
-
