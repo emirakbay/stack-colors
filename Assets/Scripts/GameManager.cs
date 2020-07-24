@@ -1,11 +1,27 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public int score = 0;
+    bool gameHasEnded = false;
+    public float restartDelay = 1f;
     private void OnGUI()
     {
         GUI.Label(new Rect(20,20, 1000, 300), "Score : " + score);
+    }
+    public void EndGame()
+    {
+        if (gameHasEnded == false)
+        {
+            gameHasEnded = true;
+            Debug.Log("Game Over");
+            Invoke("Restart", restartDelay);
+        }
+        
+    }
+    void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

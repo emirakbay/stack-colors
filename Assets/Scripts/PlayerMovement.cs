@@ -23,6 +23,6 @@ public class PlayerMovement : MonoBehaviour
     void isMoving()
     {
         if (rb.velocity.x >= 0f)
-            Debug.Log("Object has stopped moving!!!!");
+            isStopped = true;
     }
 }

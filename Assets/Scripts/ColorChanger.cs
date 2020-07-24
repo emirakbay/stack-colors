@@ -6,7 +6,6 @@ public class ColorChanger: MonoBehaviour
     void Start()
     {
         SetColor(colors);
-
     }
     void OnTriggerEnter(Collider other)
     {

@@ -9,29 +9,29 @@ public class ObstacleSpawn : MonoBehaviour
     public Vector3 rightStartPos = new Vector3(60, 0.05F, 0.907F);
     void Start()
     { 
-        CreateRedObs(5);
-        CreateGreenObs(5);
-        CreateBlueObs(5);
+        CreateRedObs(25);
+        CreateBlueObs(25);
+        CreateGreenObs(25);
     }
     private void CreateRedObs(int obstacleNum)
     {
         for (int i=0; i<obstacleNum; i++)
         {
-            GameObject temp = Instantiate(redObstacle, new Vector3(leftStartPos.x+i, leftStartPos.y, leftStartPos.z), Quaternion.identity);
+            GameObject temp = Instantiate(redObstacle, new Vector3(leftStartPos.x-i, leftStartPos.y, leftStartPos.z), Quaternion.identity);
         }
     }
     private void CreateBlueObs(int obstacleNum)
     {
         for (int i=0; i<obstacleNum; i++)
         {
-            GameObject temp = Instantiate(blueObstacle, new Vector3(midStartPos.x+i, midStartPos.y, midStartPos.z), Quaternion.identity);
+            GameObject temp = Instantiate(blueObstacle, new Vector3(midStartPos.x-i, midStartPos.y, midStartPos.z), Quaternion.identity);
         }
     }
-     private void CreateGreenObs(int obstacleNum)
+    private void CreateGreenObs(int obstacleNum)
     {
         for (int i=0; i<obstacleNum; i++)
         {
-            GameObject temp = Instantiate(greenObstacle, new Vector3(rightStartPos.x+i, rightStartPos.y, rightStartPos.z), Quaternion.identity);
+            GameObject temp = Instantiate(greenObstacle, new Vector3(rightStartPos.x-i, rightStartPos.y, rightStartPos.z), Quaternion.identity);
         }
     }
      public static Vector3 ChangeX(Vector3 v)

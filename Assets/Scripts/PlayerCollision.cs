@@ -9,6 +9,7 @@ public class PlayerCollision : MonoBehaviour
     public Vector3 stackStartPos;
     public Vector3 offSet;
     private GameObject ground;
+    public PlayerMovement movement;
     void Start()
     {
         colorStack = new Stack<GameObject>();
@@ -33,6 +34,8 @@ public class PlayerCollision : MonoBehaviour
                 friction.material.staticFriction = 1;
                 if (colorStack.Count == 0)
                 {
+                    movement.enabled = false;
+                    //FindObjectOfType<GameManager>().EndGame();    
                     Debug.Log("Out of stacks except player itself!!!");
                 }
                 else 

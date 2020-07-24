@@ -18,5 +18,4 @@ public class Obstacle : MonoBehaviour
         StartCoroutine(AnimationCoroutine(target));
     }
 }
-
 public enum Colors { Red, Green, Blue};
