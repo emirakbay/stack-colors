@@ -12,13 +12,13 @@ public class PlayerMovement : MonoBehaviour
     }
     void FixedUpdate()
     {
-        rb.AddForce(-forwardForce * Time.deltaTime, 0, 0);
+        rb.AddForce(forwardForce * Time.deltaTime, 0, 0);
 
         if (Input.GetKey("d"))
-            rb.AddForce(0, 0, sidewaysForce * Time.deltaTime, ForceMode.VelocityChange);
+            rb.AddForce(0, 0, -sidewaysForce * Time.deltaTime, ForceMode.VelocityChange);
 
         if (Input.GetKey("a"))
-            rb.AddForce(0, 0, -sidewaysForce * Time.deltaTime, ForceMode.VelocityChange);
+            rb.AddForce(0, 0, sidewaysForce * Time.deltaTime, ForceMode.VelocityChange);
     }
     void isMoving()
     {

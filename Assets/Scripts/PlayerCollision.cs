@@ -28,10 +28,12 @@ public class PlayerCollision : MonoBehaviour
             }
             else
             {
+                var tempObj = colorStack.Pop();
+                Destroy(tempObj);
                 ground = GameObject.Find("Ground");
                 var friction = ground.GetComponent<Collider>();
-                friction.material.dynamicFriction = 1;
-                friction.material.staticFriction = 1;
+                friction.material.dynamicFriction = 0.05F;
+                friction.material.staticFriction = 0.05F;
                 if (colorStack.Count == 0)
                 {
                     movement.enabled = false;
@@ -40,8 +42,8 @@ public class PlayerCollision : MonoBehaviour
                 }
                 else 
                 {
-                    var tempObj = colorStack.Pop();
-                    Destroy(tempObj);
+                    var tempObj2 = colorStack.Pop();
+                    Destroy(tempObj2);
                 }
             }
         }
