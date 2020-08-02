@@ -28,8 +28,6 @@ public class PlayerCollision : MonoBehaviour
             }
             else
             {
-                var tempObj = colorStack.Pop();
-                Destroy(tempObj);
                 ground = GameObject.Find("Ground");
                 var friction = ground.GetComponent<Collider>();
                 friction.material.dynamicFriction = 0.05F;
@@ -37,7 +35,7 @@ public class PlayerCollision : MonoBehaviour
                 if (colorStack.Count == 0)
                 {
                     movement.enabled = false;
-                    //FindObjectOfType<GameManager>().EndGame();    
+                    FindObjectOfType<GameManager>().EndGame();    
                     Debug.Log("Out of stacks except player itself!!!");
                 }
                 else 
