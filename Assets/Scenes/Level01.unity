@@ -450,6 +450,7 @@ MonoBehaviour:
     type: 3}
   greenObstacle: {fileID: 5255536248802613251, guid: 720d2bf64d77d254fb6f86f85adae93b,
     type: 3}
+  endTrigger: {fileID: 1946577939}
 --- !u!1 &44661744 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6823351592119845653, guid: d1e32c28af4ec1343ac7684e269be4bc,
@@ -5904,6 +5905,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_UseGravity
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273447767772226106, guid: 46d3650eb4476ba4f88a24dc23ebf732,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 112
       objectReference: {fileID: 0}
     - target: {fileID: 4273447767772226107, guid: 46d3650eb4476ba4f88a24dc23ebf732,
         type: 3}

@@ -14,8 +14,6 @@ public class PlayerCollision : MonoBehaviour
     {
         colorStack = new Stack<GameObject>();
     }
-
-    // Pick leftoffs
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Obstacle"))
@@ -47,6 +45,13 @@ public class PlayerCollision : MonoBehaviour
         }
     }
 
+    void OnTriggerExit(Collider other)
+    {
+        ground = GameObject.Find("Ground");
+        var friction = ground.GetComponent<Collider>();
+        friction.material.dynamicFriction = 0F;
+        friction.material.staticFriction = 0F;
+    }   
     public void SetColor(Colors toSet)
     {
         Renderer render = GetComponent<Renderer>();
